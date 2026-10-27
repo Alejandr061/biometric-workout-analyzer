@@ -1,0 +1,10 @@
+# Project Rules: Biomechanical Computer Vision Analyzer
+
+- **Language & Stack**: Python 3.11+, OpenCV (`opencv-python`), MediaPipe (`mediapipe`) or Ultralytics (`ultralytics` YOLOv11-pose), NumPy, Pydantic.
+- **Architecture**: Strictly modular and decoupled. Never write monolithic scripts.
+  - `src/core/`: Pose estimation wrappers, signal smoothing filters (EMA/OneEuroFilter), and vector geometry math.
+  - `src/exercises/`: Base abstract class `BaseExercise` using Finite State Machines (FSM) and specific exercise implementations.
+  - `src/ui/`: OpenCV HUD rendering (skeleton overlay, angle gauges, rep counters, posture alerts).
+  - `src/telemetry/`: Session data logging (ROM, concentric/eccentric tempo, symmetry) and JSON/CSV export.
+- **Code Style**: Strict type hints (`typing`), docstrings for formulas, PEP8 compliance, and clean error handling for missing keypoints or low visibility confidence (< 0.6).
+- **Git Workflow**: Suggest atomic Conventional Commits (`feat:`, `refactor:`, `docs:`) after completing each module.
